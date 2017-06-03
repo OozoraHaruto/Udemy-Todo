@@ -5,6 +5,7 @@ import {HashRouter as Router, Route} from 'react-router-dom' ;
 
 //Compents
 //extra codes if needed
+import TodoApp from 'TodoApp';
 
 //load foundation
 $(document).foundation();
@@ -15,7 +16,7 @@ require('applicationStyles'); //added line 56 - 90 in webpack.config that remove
 //render
 ReactDOM.render(
   <div>
-    <p>Gone</p>
+    <TodoApp />
   </div>,
   document.getElementById('app')
 );
