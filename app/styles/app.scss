@@ -1,8 +1,12 @@
-@import "base/variables";
-
 //Foundation -added line 56 - 90 in webpack.config help to solve errrors that sass-loader have
 @import "foundation";
 @import "base/foundation-settings";
 @include foundation-everything;
 
+//custom
+@import "base/variables";
+
 //components
+@import "components/container";
+@import "components/page-Title";
+@import "components/todo";
