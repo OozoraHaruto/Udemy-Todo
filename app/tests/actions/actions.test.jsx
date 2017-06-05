@@ -1,6 +1,6 @@
 import actions from 'actions';
 
-describe('Actions', ()=>{ //Not working
+// describe('Actions', ()=>{ //Not working
 
   // it('should generate searchText action', ()=>{
   //   var action = {
@@ -40,4 +40,4 @@ describe('Actions', ()=>{ //Not working
   //
   //   expect(res).toEqual(action);
   // })
-});
+// });
