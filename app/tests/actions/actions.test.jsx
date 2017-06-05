@@ -1,6 +1,6 @@
 import actions from 'actions';
 
-// describe('Actions', ()=>{ //Not working
+describe('Actions', ()=>{ //Not working
 
   // it('should generate searchText action', ()=>{
   //   var action = {
@@ -21,15 +21,15 @@ import actions from 'actions';
   //   expect(res).toEqual(action);
   // })
 
-  // it('should generate addTodo action', ()=>{
-  //   var action = {
-  //     type: 'ADD_TODO',
-  //     text: 'Thing to do'
-  //   }
-  //   var res = actions.addTodo(action.text);
-  //
-  //   expect(res).toEqual(action);
-  // })
+  it('should generate addTodo action', ()=>{
+    var action = {
+      type: 'ADD_TODO',
+      text: 'Thing to do'
+    }
+    var res = actions.addTodo(action.text);
+
+    expect(res).toEqual(action);
+  })
 
   // it('should generate toggleTodo action', ()=>{
   //   var action = {
@@ -40,4 +40,4 @@ import actions from 'actions';
   //
   //   expect(res).toEqual(action);
   // })
-// });
+});

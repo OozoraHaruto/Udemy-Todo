@@ -39,7 +39,8 @@ module.exports={
     alias:{
       applicationStyles: 'app/styles/app.scss',
       actions: 'app/actions/actions.jsx',
-      reducers: 'app/reducers/reducers.jsx'
+      reducers: 'app/reducers/reducers.jsx',
+      configureStore: 'app/store/configureStore.jsx'
     },
     extensions: ['.js', '.jsx']
   },
@@ -52,8 +53,7 @@ module.exports={
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
-      },
-      {
+      }, {
        test: /\.vue$/,
        loader: 'vue-loader',
        options: {
@@ -66,8 +66,7 @@ module.exports={
            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax' // <style lang="sass">
           }
         }
-       },
-      {
+       }, {
         test: /\.scss$/,
         use: [
           {loader: 'style-loader'},
