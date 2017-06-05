@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter as Router, Route} from 'react-router-dom' ;
+import actions from 'actions';
 
 //Compents
 //extra codes if needed

@@ -34,10 +34,11 @@ module.exports={
       __dirname,
       "node_modules",
       "./app/components",
-      "./app/api"
+      "./app/api",
+      "./app/actions"
     ],
     alias:{
-      applicationStyles: 'app/styles/app.scss',
+      applicationStyles: 'app/styles/app.scss'
     },
     extensions: ['.js', '.jsx']
   },
