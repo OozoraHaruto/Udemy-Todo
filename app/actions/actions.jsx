@@ -12,14 +12,7 @@ export const toggleShowCompleted = () =>{
   }
 }
 
-// export const addTodo = (text) =>{
-//   return{
-//     type: 'ADD_TODO',
-//     text
-//   }
-// }
-
-export function addTodo (text){
+export const addTodo = (text) =>{
   return{
     type: ADD_TODO,
     text

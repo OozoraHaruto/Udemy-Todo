@@ -1,16 +1,17 @@
 //Modules
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 import {HashRouter as Router, Route} from 'react-router-dom' ;
 
 //Compents
 //extra codes if needed
 import TodoApp from 'TodoApp';
 
-import actions from 'actions';
-var store = require('configureStore').configure();
-// import store from 'configureStore';
-// store.configure();
+import * as actions from 'actions';
+// var store = require('configureStore').configure();
+import {configure} from 'configureStore';
+var store = configure();
 
 
 store.subscribe(() =>{
@@ -19,7 +20,7 @@ store.subscribe(() =>{
 
 store.dispatch(actions.addTodo('Clean the yard'));
 store.dispatch(actions.setSearchText('yard'));
-store.dispatch(actions.showCompleted());
+store.dispatch(actions.toggleShowCompleted());
 
 //load foundation
 $(document).foundation();
@@ -29,6 +30,8 @@ require('applicationStyles'); //added line 56 - 90 in webpack.config that remove
 
 //render
 ReactDOM.render(
-    <TodoApp />,
+    <Provider store={store}>
+      <TodoApp />
+    </Provider>,
   document.getElementById('app')
 );
