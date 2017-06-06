@@ -4,19 +4,25 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {HashRouter as Router, Route} from 'react-router-dom' ;
 
-//Compents
+//Components
 //extra codes if needed
 import TodoApp from 'TodoApp';
 
-import * as actions from 'actions';
+import {addTodos} from 'actions';
 // var store = require('configureStore').configure();
 import {configure} from 'configureStore';
 var store = configure();
+import TodoAPI from 'TodoAPI';
 
-
+//For redux
 store.subscribe(() =>{
-  console.log('New state', store.getState());
+  var state = store.getState();
+  console.log('New state', state);
+  TodoAPI.setTodos(state.todos)
 });
+
+var initialTodos = TodoAPI.getTodos();
+store.dispatch(addTodos(initialTodos));
 
 //load foundation
 $(document).foundation();

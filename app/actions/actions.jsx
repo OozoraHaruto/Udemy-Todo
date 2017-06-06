@@ -1,4 +1,3 @@
-export const ADD_TODO = 'ADD_TODO';
 export const setSearchText = (searchText) => {
 	return {
 		type: 'SET_SEARCH_TEXT',
@@ -14,8 +13,15 @@ export const toggleShowCompleted = () =>{
 
 export const addTodo = (text) =>{
   return{
-    type: ADD_TODO,
+    type: 'ADD_TODO',
     text
+  }
+}
+
+export const addTodos = (todos) =>{
+  return{
+    type: 'ADD_TODOS',
+    todos
   }
 }
 
