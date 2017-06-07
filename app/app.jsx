@@ -8,21 +8,13 @@ import {HashRouter as Router, Route} from 'react-router-dom' ;
 //extra codes if needed
 import TodoApp from 'TodoApp';
 
-import {addTodos} from 'actions';
+import {addTodos, startAddTodos} from 'actions';
 // var store = require('configureStore').configure();
 import {configure} from 'configureStore';
 var store = configure();
 import TodoAPI from 'TodoAPI';
 
-//For redux
-store.subscribe(() =>{
-  var state = store.getState();
-  console.log('New state', state);
-  TodoAPI.setTodos(state.todos)
-});
-
-var initialTodos = TodoAPI.getTodos();
-store.dispatch(addTodos(initialTodos));
+store.dispatch(startAddTodos());
 
 //load foundation
 $(document).foundation();

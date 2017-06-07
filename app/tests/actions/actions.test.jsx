@@ -71,15 +71,22 @@ describe('Actions', ()=>{ //Not working
 
   describe('Tests with firebase todos', ()=>{
     var testTodoRef;
-    beforeEach((done)=>{
-      testTodoRef = firebaseRef.child('todos').push();
 
-      testTodoRef.set({
-        text: 'something todo',
-        completed: false,
-        createdAt: 123435
-      }).then(()=> done());
-    });
+    beforeEach((done) =>{
+      var todosRef = firebaseRef.child('todos');
+
+      todosRef.remove().then(()=>{
+        testTodoRef = firebaseRef.child('todos').push();
+
+        return testTodoRef.set({
+          text: 'Something to do',
+          completed: false,
+          createdAt: 23453453
+        })
+      })
+      .then(()=> done())
+      .catch(done);
+    })
 
     afterEach((done)=>{
       testTodoRef.remove().then(()=>done());
@@ -102,5 +109,20 @@ describe('Actions', ()=>{ //Not working
         expect(mockActions[0].updates).toExists();
       }, done())
     });
+
+    it('should populate todos and dispatch ADD_TODO', (done)=>{
+      const store = createMockStore();
+      const action = actions.startAddTodos();
+
+      store.dispatch(action).then(()=>{
+        const mockActions = store.getActions();
+
+        expect(mockActions[0]).toEqual({type: 'ADD_TODO'})
+        expect(mockActions[0].todos.length).toEqual(1);
+        expect(mockActions[0].todos[0].text).toEqual('something to do');
+
+        done();
+      }, done())
+    })
   })
 });
