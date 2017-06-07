@@ -37,10 +37,12 @@ module.exports={
       "./app/api"
     ],
     alias:{
+      app: 'app',
       applicationStyles: 'app/styles/app.scss',
       actions: 'app/actions/actions.jsx',
       reducers: 'app/reducers/reducers.jsx',
-      configureStore: 'app/store/configureStore.jsx'
+      configureStore: 'app/store/configureStore.jsx',
+      firebaseTest: 'app/playground/firebase/index'
     },
     extensions: ['.js', '.jsx']
   },

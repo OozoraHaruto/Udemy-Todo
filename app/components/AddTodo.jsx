@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addTodo} from 'actions';
+import {startAddTodo} from 'actions';
 
 export class AddTodo extends React.Component{
   onSubmit = (e) =>{
@@ -10,7 +10,7 @@ export class AddTodo extends React.Component{
 
     if (todoText.length > 0){
       this.todoText.value = '';
-      dispatch(addTodo(todoText))
+      dispatch(startAddTodo(todoText))
     }else{
       this.todoText.focus();
     }

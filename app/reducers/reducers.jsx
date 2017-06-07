@@ -1,6 +1,7 @@
 import uuid from 'uuid/v1';
 import moment from 'moment';
 
+
 export const searchTextReducer = (state = '', action) =>{
   switch (action.type) {
     case 'SET_SEARCH_TEXT':
@@ -24,7 +25,7 @@ export const todosReducer = (state = [], action) =>{
     case 'ADD_TODO':
       return [
         ...state,
-        {id: uuid(), text: action.text, completed: false, createdAt: moment().unix(), completedAt: undefined}
+        action.todo
       ];
     case 'TOGGLE_TODO':
       return state.map((todo) =>{
