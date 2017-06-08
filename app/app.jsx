@@ -2,18 +2,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {HashRouter as Router, Switch, Route} from 'react-router-dom' ;
-
-//Components
-//extra codes if needed
-import TodoApp from 'TodoApp';
-import Login from 'Login'
 
 import {addTodos, startAddTodos} from 'actions';
 // var store = require('configureStore').configure();
 import {configure} from 'configureStore';
 var store = configure();
-import TodoAPI from 'TodoAPI';
+import firebase from 'app/firebase/';
+import router from 'app/router/'
+
+firebase.auth().onAuthStateChanged((user) =>{
+  if(user){
+    window.location.href = "/#/todos";
+  }else{
+    window.location.href = "/#/";
+  }
+})
 
 store.dispatch(startAddTodos());
 
@@ -26,12 +29,7 @@ require('applicationStyles'); //added line 56 - 90 in webpack.config that remove
 //render
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <div>
-        <Route exact path='/' component={Login} />
-        <Route path='/todos' component={TodoApp} />
-      </div>
-    </Router>
+    {router}
   </Provider>,
   document.getElementById('app')
 );

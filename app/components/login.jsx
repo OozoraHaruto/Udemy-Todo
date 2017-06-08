@@ -2,8 +2,25 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {startLogin} from 'actions';
+import {requireNotLogin} from 'app/router';
 
 export class Login extends React.Component{
+  componentWillMount(){
+    requireNotLogin();
+  }
+
+  componentWillReceiveProps(nextProps){
+    if (nextProps.location !== this.props.location) {
+      requireNotLogin();
+    }
+  }
+
+  onLogin = () =>{
+    var {dispatch} = this.props;
+
+    dispatch(startLogin());
+  }
+
   render(){
     var {dispatch} = this.props;
 
@@ -17,7 +34,7 @@ export class Login extends React.Component{
                 <p>
                   Login with Github account
                 </p>
-                <button className="button" onClick={()=>{dispatch(startLogin())}}>Login with GitHub</button>
+                <button className="button" onClick={this.onLogin}>Login with GitHub</button>
               </div>
             </div>
           </div>

@@ -5,8 +5,19 @@ import TodoSearch from 'TodoSearch';
 import TodoList from 'TodoList';
 import AddTodo from 'AddTodo';
 import {startLogout} from 'actions';
+import {requireLogin} from 'app/router';
 
 export class TodoApp extends React.Component{
+  componentWillMount(){
+    requireLogin();
+  }
+
+  componentWillReceiveProps(nextProps){
+    if (nextProps.location !== this.props.location) {
+      requireLogin();
+    }
+  }
+
   onLogout = (e) =>{
     e.preventDefault();
     var {dispatch} = this.props;
