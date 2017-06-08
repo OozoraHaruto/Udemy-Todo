@@ -13,14 +13,13 @@ import router from 'app/router/'
 firebase.auth().onAuthStateChanged((user) =>{
   if(user){
     store.dispatch(login(user.uid));
+    store.dispatch(startAddTodos());
     window.location.href = "/#/todos";
   }else{
     store.dispatch(logout())
     window.location.href = "/#/";
   }
 })
-
-store.dispatch(startAddTodos());
 
 //load foundation
 $(document).foundation();
