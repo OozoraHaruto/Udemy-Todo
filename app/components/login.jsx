@@ -32,7 +32,7 @@ export class Login extends React.Component{
               <div className="callout callout-auth">
                 <h3>Login</h3>
                 <p>
-                  Login with Github account
+                  Login with GitHub account
                 </p>
                 <button className="button" onClick={this.onLogin}>Login with GitHub</button>
               </div>
