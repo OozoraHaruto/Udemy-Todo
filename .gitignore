@@ -2,3 +2,4 @@ node_modules/
 server.min.js
 webpack.config.min.js
 public/bundle.js
+config/
