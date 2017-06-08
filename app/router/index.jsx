@@ -5,7 +5,7 @@ import {HashRouter as Router, Switch, Route, hashHistory} from 'react-router-dom
 //Components
 //extra codes if needed
 import TodoApp from 'TodoApp';
-import Login from 'Login'
+import Login from 'Login';
 
 import firebase from 'app/firebase/';
 
