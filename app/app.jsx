@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
-import {addTodos, startAddTodos} from 'actions';
+import {addTodos, startAddTodos, login, logout} from 'actions';
 // var store = require('configureStore').configure();
 import {configure} from 'configureStore';
 var store = configure();
@@ -12,8 +12,10 @@ import router from 'app/router/'
 
 firebase.auth().onAuthStateChanged((user) =>{
   if(user){
+    store.dispatch(login(user.uid));
     window.location.href = "/#/todos";
   }else{
+    store.dispatch(logout())
     window.location.href = "/#/";
   }
 })
