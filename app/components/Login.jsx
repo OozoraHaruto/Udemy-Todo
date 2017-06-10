@@ -5,6 +5,11 @@ import {startLogin} from 'actions';
 import {requireNotLogin} from 'app/router';
 
 export class Login extends React.Component{
+  constructor(props){
+    super(props);
+    this.onLogin = this.onLogin.bind(this);
+  }
+
   componentWillMount(){
     requireNotLogin();
   }
@@ -15,7 +20,7 @@ export class Login extends React.Component{
     }
   }
 
-  onLogin = () =>{
+  onLogin(){
     var {dispatch} = this.props;
 
     dispatch(startLogin());

@@ -18,7 +18,7 @@ export class TodoApp extends React.Component{
     }
   }
 
-  onLogout = (e) =>{
+  onLogout(e){
     e.preventDefault();
     var {dispatch} = this.props;
 
@@ -29,7 +29,7 @@ export class TodoApp extends React.Component{
     return(
       <div className="">
         <div className="pageActions">
-          <a onClick={this.onLogout}>Logout</a>
+          <a onClick={this.onLogout.bind(this)}>Logout</a>
         </div>
 
         <h1 className="pageTitle">Todo App</h1>

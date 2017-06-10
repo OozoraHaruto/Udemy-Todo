@@ -14,7 +14,7 @@ describe('TodoAPI', () =>{
     var todos = [
       {id: 1, text: 'some text here', completed: true},
       {id: 2, text: 'other text here', completed: false},
-      {id: 3, text: 'some text here', completed: true}
+      {id: 3, text: 'Some text here', completed: true}
     ];
 
     it('should return all items if showCompleted is true', ()=>{
@@ -37,6 +37,12 @@ describe('TodoAPI', () =>{
 
     it('should filter todos by search text', ()=>{
       var filteredTodos = TodoAPI.filterTodos(todos, true, 'some');
+
+      expect(filteredTodos.length).toBe(2);
+    });
+
+    it('should filter todos by search text if uppercase', ()=>{
+      var filteredTodos = TodoAPI.filterTodos(todos, true, 'Some');
 
       expect(filteredTodos.length).toBe(2);
     });
